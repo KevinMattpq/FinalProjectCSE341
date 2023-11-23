@@ -1,12 +1,20 @@
 const express = require('express');
 const app = express();
 const mongodb = require('./db/connect');
-const port = process.env.PORT || 3000;
+const bodyParser = require('body-parser');
+const port = process.env.PORT || 4000;
 
 
-app.get('/', function (req, res) {
-  res.send('SoccerTransfer Pro - Roguin Espinal And Kevin Pena')
-})
+// app.get('/', function (req, res) {
+//   res.send('SoccerTransfer Pro - Roguin Espinal And Kevin Pena')
+// })
+app
+  .use(bodyParser.json())
+  .use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    next();
+  })
+  // .use('/', require('./routes'));
 
 mongodb.initDb((err, mongodb) => {
   if (err) {
@@ -17,4 +25,4 @@ mongodb.initDb((err, mongodb) => {
   }
 });
 
-app.listen(port)
+// app.listen(port)
