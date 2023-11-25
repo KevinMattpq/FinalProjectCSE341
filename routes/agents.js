@@ -3,9 +3,10 @@ const router = express.Router();
 const agentController = require('../controllers/agent');
 
 router.get('/', agentController.getAll);
-router.get('/:username', agentController.getAgent);
-router.post('/', agentController.create);
-router.put('/:username', agentController.updateAgent);
-router.delete('/:username', agentController.deleteAgent);
+router.get('/:id', agentController.getAgent);
+//Testing
+router.post('/', agentController.createAgent);
+router.put('/:id', agentController.updateAgent);
+router.delete('/:id', agentController.deleteAgent);
 
 module.exports = router;
