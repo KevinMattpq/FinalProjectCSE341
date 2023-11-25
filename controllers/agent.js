@@ -4,7 +4,7 @@ const ObjectId = require('mongodb').ObjectId;
 
 // Showing All Agents in database
 const getAll = async (req, res) => {
-  const result = await mongodb.getDb().db().collection('agents').find();
+  const result = await mongodb.getDb().db().collection('Agents').find();
   result.toArray().then((lists) => {
       res.setHeader('Content-Type', 'application/json');
       res.status(200).json(lists);
@@ -15,7 +15,7 @@ const getAll = async (req, res) => {
 const getAgent = async(req, res) => {
   try {
     const agentId = new ObjectId(req.params.id);
-    const result = await mongodb.getDb().db().collection('agents').findOne({ _id: agentId });
+    const result = await mongodb.getDb().db().collection('Agents').findOne({ _id: agentId });
     if (result) {
       res.setHeader('Content-type', 'application/json');
       res.status(200).json(result);
@@ -37,7 +37,7 @@ const createAgent = async(req, res) => {
     agentEmail: req.body.agentEmail,
     agentPhone: req.body.agentPhone
   }
-  const result = await mongodb.getDb().db().collection('agents').insertOne(newAgent);
+  const result = await mongodb.getDb().db().collection('Agents').insertOne(newAgent);
   if(result){
     res.setHeader('Content-type', 'application/json');
     res.status(201).json(result);
@@ -73,7 +73,7 @@ const updateAgent = async (req, res) => {
 // Deleting Agent
 const deleteAgent = async (req, res) => {
   const agentId = new ObjectId(req.params.id)
-      const result = await mongodb.getDb().db().collection('agents').deleteOne({_id: agentId});
+      const result = await mongodb.getDb().db().collection('Agents').deleteOne({_id: agentId});
       if (result){
         res.setHeader('Content-type', 'application/json');
         res.status(200).send(result);
