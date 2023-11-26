@@ -8,3 +8,42 @@ Content-type: application/json
     "agentEmail": "gerard@manchesterunited.com",
     "agentPhone": "619-123-1234"
 }
+
+###
+POST http://localhost:4000/agents HTTP/1.1
+Content-type: application/json
+
+{
+    "idPlayer": "123",
+    "clubInterested": "Real Madrid",
+    "yearOfContract": "2024",
+    "phoneNumber: req": "619 123 1234",
+    "dateOfInterview": "5/17/2024"
+}
+
+
+###
+POST http://localhost:4000/players HTTP/1.1
+Content-type: application/json
+
+{
+    "playerName": "Kylian Mbappe",
+    "playerPosition": "Foward",
+    "currentClub": "Paris Saint Germain",
+    "playerAge": "24",
+    "marketPrice": "180,000,000",
+    "currentSalary": "15,000,000",
+    "endOfContract": "6/2024"
+}
+
+###
+POST http://localhost:4000/appointments HTTP/1.1
+Content-type: application/json
+
+{
+    "idPlayer": "1234567",
+    "clubInterested": "Real Madrid",
+    "yearOfContract": "2024",
+    "phoneNumber": "123-123-456",
+    "dateOfInterview": "5/10/2023"
+}

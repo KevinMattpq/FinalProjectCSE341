@@ -1,8 +1,15 @@
 const express = require('express');
 const router = express.Router();
 const agents = require('./agents');
+const appointments = require('./appointments');
+const clubs = require('./clubs');
+const players = require('./players');
+
 
 router.use('/agents', agents);
+router.use('/appoinments',appointments);
+router.use('/clubs',clubs);
+router.use('/players',players);
 router.use(
     '/',
     (docData = (req, res) =>{
