@@ -11,6 +11,9 @@ const getAll = async (req, res, next) => {
 
 const getSingle = async (req, res, next) => {
   try {
+    if(!ObjectId.isValid(req.params.id)){
+        res.status(400).json('Must use a valid id to get the result')
+      }
      const clubId = new ObjectId(req.params.id);
      const result = await mongodb.getDb().db().collection('clubs').findOne({ _id: clubId });
     if (result) {
@@ -45,6 +48,9 @@ const createClubs = async (req, res) => {
 };
 
 const updateClubs = async (req, res) => {
+    if(!ObjectId.isValid(req.params.id)){
+        res.status(400).json('Must use a valid id to get the Club')
+      }
     const clubId = new ObjectId(req.params.id)
     const updatedClub = {
         clubName: req.body.clubName,
@@ -63,6 +69,9 @@ const updateClubs = async (req, res) => {
 };
 
 const deleteClubs = async (req, res) => {
+    if(!ObjectId.isValid(req.params.id)){
+        res.status(400).json('Must use a valid id to get the Club')
+      }
     const clubId = new ObjectId(req.params.id)
     const result = await mongodb.getDb().db().collection('clubs').deleteOne({_id: clubId});
     if (result){

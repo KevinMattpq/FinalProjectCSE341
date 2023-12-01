@@ -5,10 +5,6 @@ const mongodb = require('./db/connect');
 const port = process.env.PORT || 4000;
 const app = express();
 
-
-// app.get('/', function (req, res) {
-//   res.send('SoccerTransfer Pro - Roguin Espinal And Kevin Pena')
-// })
 app
   .use(bodyParser.json())
   .use((req, res, next) => {

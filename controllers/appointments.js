@@ -11,6 +11,9 @@ const getAll = async (req, res, next) => {
 
 const getSingle = async (req, res, next) => {
     try {
+        if(!ObjectId.isValid(req.params.id)){
+            res.status(400).json('Must use a valid id to get the Appointment')
+          }
         const agentId = new ObjectId(req.params.id);
         const result = await mongodb.getDb().db().collection('appointments').findOne({ _id: agentId });
         if (result) {
@@ -42,6 +45,9 @@ const createAppointments = async (req, res) => {
         }
 };
 const updateAppointments = async (req, res) => {
+    if(!ObjectId.isValid(req.params.id)){
+        res.status(400).json('Must use a valid id to get the Appointment')
+      }
     const appointmentId = new ObjectId(req.params.id)
     const updatedAppointment = {
         idPlayer: req.body.idPlayer,
@@ -63,6 +69,9 @@ const updateAppointments = async (req, res) => {
 };
 
 const deleteAppointments = async (req, res) => {
+    if(!ObjectId.isValid(req.params.id)){
+        res.status(400).json('Must use a valid id to get the Appointment')
+      }
     const appointmentId = new ObjectId(req.params.id)
     const result = await mongodb.getDb().db().collection('appointmnets').deleteOne({_id: appointmentId});
     if (result){
