@@ -7,7 +7,7 @@ const players = require('./players');
 
 router.use('/', require('./swagger'));
 router.use('/agents', agents);
-router.use('/appoinments',appointments);
+router.use('/appointments',appointments);
 router.use('/clubs',clubs);
 router.use('/players',players);
 router.use(

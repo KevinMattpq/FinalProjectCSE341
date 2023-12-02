@@ -14,8 +14,8 @@ const getSingle = async (req, res, next) => {
         if(!ObjectId.isValid(req.params.id)){
             res.status(400).json('Must use a valid id to get the Appointment')
           }
-        const agentId = new ObjectId(req.params.id);
-        const result = await mongodb.getDb().db().collection('appointments').findOne({ _id: agentId });
+        const appointmentId = new ObjectId(req.params.id);
+        const result = await mongodb.getDb().db().collection('appointments').findOne({ _id: appointmentId });
         if (result) {
             res.setHeader('Content-type', 'application/json');
             res.status(200).json(result);
