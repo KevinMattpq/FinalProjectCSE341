@@ -1,5 +1,19 @@
 const express = require('express');
 const router = express.Router();
+// Adding Auth0
+// const { auth } = require('express-openid-connect');
+
+// const config = {
+//   authRequired: false,
+//   auth0Logout: true,
+//   secret: 'a long, randomly-generated string stored in env',
+//   baseURL: 'http://localhost:4000',
+//   clientID: '0uu8nxzWFt5WHUIG9romvo5fjuvKYaoV',
+//   issuerBaseURL: 'https://dev-hilr1ws8ejjafmrv.us.auth0.com'
+// };
+
+
+
 const agents = require('./agents');
 const appointments = require('./appointments');
 const clubs = require('./clubs');
