@@ -9,6 +9,6 @@ router.get('/', playersController.getAll);
 router.get('/:id', playersController.getSingle);
 router.post('/',validation.savePlayer, playersController.createPlayers);
 router.put('/:id',validation.savePlayer, playersController.updatePlayers);
-router.delete('/:id',validation.savePlayer,playersController.deletePlayers);
+router.delete('/:id', playersController.deletePlayers);
 
 module.exports = router;

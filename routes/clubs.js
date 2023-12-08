@@ -9,6 +9,6 @@ router.get('/', clubsController.getAll);
 router.get('/:id', clubsController.getSingle);
 router.post('/',validation.saveClub, clubsController.createClubs);
 router.put('/:id',validation.saveClub, clubsController.updateClubs);
-router.delete('/:id',validation.saveClub, clubsController.deleteClubs);
+router.delete('/:id', clubsController.deleteClubs);
 
 module.exports = router;

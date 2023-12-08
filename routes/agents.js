@@ -10,6 +10,6 @@ router.get('/:id', agentController.getAgent);
 //Testing
 router.post('/',validation.saveAgent, agentController.createAgent);
 router.put('/:id',validation.saveAgent, agentController.updateAgent);
-router.delete('/:id',validation.saveAgent, agentController.deleteAgent);
+router.delete('/:id', agentController.deleteAgent);
 
 module.exports = router;
